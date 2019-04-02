@@ -14,7 +14,8 @@ angular.module('angular-input-stars', [])
             '</ul>',
             require: 'ngModel',
             scope:{
-                bindModel:'=ngModel'
+                bindModel:'=ngModel',
+                max: '='
             },
             link: link
         };
@@ -46,7 +47,7 @@ angular.module('angular-input-stars', [])
                 }
             };
 
-            scope.items = new Array(+attrs.max);
+            scope.items = new Array(+scope.max);
             scope.listClass = attrs.listClass || 'angular-input-stars';
 
             ngModelCtrl.$render = function () {
